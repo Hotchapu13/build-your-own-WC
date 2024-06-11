@@ -43,6 +43,7 @@ public class ccwc {
                 break;
             case "-m":
                 count = countChar(file);
+                System.out.println("no. of characters in " + filename + ": " + count);
                 break;
             default:
                 System.out.println("invalid option: " + option);
@@ -172,11 +173,34 @@ public class ccwc {
     }
 
     public static long countChar(File file) {
-        long Charcount = 0;
+        long CharCount = 0;
+        BufferedReader reader = null;
         
-        // trying to make some changes to learn more git
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            String line;
 
-        return Charcount;
+            while ((line = reader.readLine()) != null) {
+                // Replace whitespace and newline characters with an empty string
+                line = line.replaceAll("\\s", "");
+                CharCount += line.length();
+            }
+
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
+        } 
+        finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return CharCount;
     }
 
 }
