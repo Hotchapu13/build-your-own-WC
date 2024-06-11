@@ -138,7 +138,7 @@ public class ccwc {
         //     e.printStackTrace();
         // } 
 
-        /*using the bufferedReader class to read words from the file */
+        /*______using the bufferedReader class to read words from the file ______*/
          
         BufferedReader reader = null;
 
